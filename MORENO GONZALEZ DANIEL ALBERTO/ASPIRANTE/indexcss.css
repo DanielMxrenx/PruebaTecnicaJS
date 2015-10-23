@@ -1,0 +1,59 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+
+	background: #fff;
+}
+
+
+#myCanvas{
+	background: #ccc; 
+	border-style:  solid ;
+	border-color: #00FFFF;
+	border-radius: 5px;
+	margin-left: 5px;
+
+}
+
+#nuevo{
+
+	background: #00FFFF;
+	width: 120px;
+	height: 35px;
+	border-radius: 6px;
+	margin-left: 0px;
+	border-color: #ccc;
+	border-radius: 5px;
+	transition: 1s;
+	color: #fff;
+
+}
+
+#nuevo:hover{
+
+	background: #fff;
+	transition: 1s;
+	color: #000;
+}
+
+#cantidad{
+
+	background: #FFF;
+	width: 200px;
+	height: 30px;
+	border-radius: 6px;
+	margin-left: 540px;
+	border-color: #00FFFF;
+	border-radius: 5px;
+	
+}
+
+#cantidad:hover{
+
+	background: #ccc;
+	transition: 1s;
+}
+

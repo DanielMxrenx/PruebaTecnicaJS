@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+
+<!--scripts-->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!--fin scripts-->
+
+<!--CSS-->
+<link rel="stylesheet" href="css/indexcss.css">
+<!--fin CSS-->
+
+</head>
+<body>
+<div class="contenerdor">
+<br/>
+<canvas id="myCanvas">
+            </canvas>
+
+        <input type="text" id="cantidad" >
+        <button id="nuevo">Agregar</button>
+
+<script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            $(document).ready(function()
+            {
+                $("#nuevo").click(function()
+                {
+                    var cantidad = $("#cantidad").val();
+                    // obtenemos las dimensiones del canvas
+                    var width = canvas.width;
+                    var height = canvas.height;
+
+                    var radius = 3;
+
+                    // velocidad
+                    var vx = 0;
+                    var vy = 0;
+
+                    // animation loop
+                    var img=new Image();
+
+   
+                    function animar()
+                    {
+                        // limpia canvas
+                        ctx.clearRect(0, 0, width, height);
+
+                        for (var i = 0; i < cantidad; i++)
+                        {
+                            var x = Math.floor((Math.random() * 450) + 1);
+                            var y = Math.floor((Math.random() * 450) + 1);
+
+                            ctx.beginPath();
+                            ctx.arc(x, y, radius, 3, 5 * Math.PI);
+                            ctx.stroke();
+
+                            // actualizamos la posicion
+                            x += vx;
+                            y += vy;
+
+                            // verificamos que no se salga de rango
+
+                            if (x < radius || x > width - radius) {
+                                vx *= -1;
+                                x += vx;
+                            }
+
+                            if (y < radius || y > height - radius) {
+                                vy *= -1;
+                                y += vy;
+                            }
+                        }
+                        requestAnimationFrame(animar);
+                    }
+                    
+                    
+                    if(cantidad >= 0 && cantidad <= 10)
+                        animar();
+                    else
+                        
+                        alert('Cantidad NO Permitida Rango(1-10)');
+
+                });
+
+            });
+        </script>
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+        </footer>
+</div>
+</body>
+</html>
+
